@@ -632,15 +632,14 @@ Nmap uses ARP scan as the:
 ```bash
 nmap -sn -PR 192.168.1.40
 ```
-![ARP Ping Scan](images/arp.png)
-
----
-
-## Meaning
 
 | Option | Purpose |
 |---|---|
 | `-PR` | Perform ARP ping scan |
+
+---
+
+![ARP Ping Scan](images/arp.png)
 
 ---
 
@@ -683,7 +682,6 @@ to determine whether:
 ```bash
 nmap -sn -Pu 192.168.1.40
 ```
-## Meaning
 
 | Option | Purpose |
 |---|---|
@@ -726,7 +724,6 @@ to determine:
 ```bash
 nmap -sn -PE 192.168.1.40
 ```
-## Meaning
 
 | Option | Purpose |
 |---|---|
@@ -736,8 +733,6 @@ nmap -sn -PE 192.168.1.40
 ![ICMP Echo Ping](images/icmp.png)
 
 ---
-
-
 
 ## Result
 
@@ -770,7 +765,7 @@ to identify:
 ```bash
 nmap -sn -PE 192.168.1.5-24
 ```
-## Meaning
+
 
 | Option | Purpose |
 |---|---|
@@ -820,7 +815,6 @@ nmap -sn -PP 192.168.1.40
 
 ---
 
-## Meaning
 
 | Option | Purpose |
 |---|---|
@@ -851,7 +845,6 @@ to:
 
 ---
 
-## Meaning
 
 | Option | Purpose |
 |---|---|
@@ -890,7 +883,6 @@ without establishing full connection.
 
 ---
 
-## Meaning
 
 | Option | Purpose |
 |---|---|
@@ -930,7 +922,6 @@ TCP ACK Ping:
 ```
 ![TCP ACK Ping](images/tcpa.png)
 
-## Meaning
 
 | Option | Purpose |
 |---|---|
@@ -978,7 +969,6 @@ to determine:
 
 ---
 
-## Meaning
 
 | Option | Purpose |
 |---|---|
