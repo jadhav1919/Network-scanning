@@ -103,7 +103,7 @@ Important flags:
 
 ---
 
-# 6. TCP Three-Way Handshake
+# 5. TCP Three-Way Handshake
 
 This is very important.
 
@@ -120,7 +120,7 @@ Connection established
 
 ![TCP Three-Way Handshake](images/tcp-three-way-handshake.png)
 
-# 7. TCP Connection Termination
+# 6. TCP Connection Termination
 
 Closing connection:
 
@@ -135,7 +135,7 @@ Connection closed.
 
 ![TCP Connection Termination](images/tcp-connection-termination.png)
 
-# 8. Scanning Tools
+# 7. Scanning Tools
 
 # A. Nmap
 
@@ -162,32 +162,6 @@ Example:
 ```bash
 nmap 192.168.1.1
 ```
-
----
-
-## Common Nmap Commands
-
-| Command | Purpose |
-|---|---|
-| `nmap IP` | Basic scan |
-| `nmap -sS IP` | SYN scan |
-| `nmap -sV IP` | Service version detection |
-| `nmap -O IP` | OS detection |
-| `nmap -A IP` | Aggressive scan |
-| `nmap -p 80 IP` | Scan specific port |
-
----
-
-## Example
-
-```bash
-nmap -sV 192.168.1.10
-```
-
-Meaning:
-- `-sV` → Detect service versions
-
----
 
 # B. Hping3
 
@@ -256,7 +230,7 @@ hping3 -8 50-60 -S 10.0.0.25
 
 ### Meaning
 
-- `-8` → Scan mode
+- `-8` → Enable scan mode
 - `50-60` → Port range
 - `-S` → SYN flag
 
@@ -277,7 +251,7 @@ Uses:
 
 ---
 
-# 9. Metasploit
+# C. Metasploit
 
 ## What is Metasploit?
 
@@ -301,7 +275,7 @@ search portscan
 
 ---
 
-# 10. NetScanTools Pro
+# D. NetScanTools Pro
 
 GUI-based scanning tool.
 
@@ -312,117 +286,3 @@ Features:
 - Network mapping
 
 ---
-
-# 11. Important Terms
-
-| Term | Meaning |
-|---|---|
-| Host Discovery | Finding live systems |
-| Port | Communication endpoint |
-| Service | Program running on a port |
-| Packet | Unit of network data |
-| Probe | Packet sent for testing |
-| Enumeration | Extracting detailed info |
-
----
-
-# 12. Complete Scanning Process
-
-```text
-Reconnaissance
-      ↓
-Host Discovery
-      ↓
-Port Scanning
-      ↓
-Service Detection
-      ↓
-OS Detection
-      ↓
-Vulnerability Scanning
-      ↓
-Attack Planning
-```
-
----
-
-# 13. Very Important Exam Points
-
-Focus on:
-- TCP Flags
-- Three-way handshake
-- Types of scanning
-- Difference between SYN/ACK/FIN
-- Nmap commands
-- Hping3 commands
-- Objectives of scanning
-
----
-
-# 14. Quick Revision
-
-## Scanning
-
-Finding detailed target information.
-
----
-
-## Port Scanning
-
-Finding open ports.
-
----
-
-## SYN
-
-Starts TCP connection.
-
----
-
-## ACK
-
-Acknowledges received packet.
-
----
-
-## FIN
-
-Closes connection.
-
----
-
-## Nmap
-
-Most popular scanning tool.
-
----
-
-## Hping3
-
-Packet crafting and firewall testing tool.
-
----
-
-# 15. One-Line Memory Trick
-
-```text
-Recon → Scan → Enumerate → Exploit
-```
-
----
-
-# 16. Recommended Learning Order
-
-Study in this order:
-
-1. Network basics
-2. TCP/IP
-3. TCP flags
-4. Three-way handshake
-5. Types of scanning
-6. Nmap
-7. Hping3
-8. Firewall evasion
-9. Enumeration
-10. Vulnerability scanning
-````
