@@ -630,9 +630,9 @@ Nmap uses ARP scan as the:
 ## Nmap Command
 
 ```bash
-nmap -PR 10.10.1.11
+nmap -sn -PR 192.168.1.40
 ```
-![ARP Ping Scan](images/arp-ping-scan.png)
+![ARP Ping Scan](images/arp.png)
 
 ---
 
@@ -681,11 +681,8 @@ to determine whether:
 ## Nmap Command
 
 ```bash
-nmap -PU 10.10.1.11
+nmap -sn -Pu 192.168.1.40
 ```
-![UDP Ping Scan](images/udp-ping-scan.png)
----
-
 ## Meaning
 
 | Option | Purpose |
@@ -693,6 +690,9 @@ nmap -PU 10.10.1.11
 | `-PU` | UDP ping scan |
 
 ---
+![UDP Ping Scan](images/udp.png)
+---
+
 
 ## Advantage
 
@@ -724,12 +724,8 @@ to determine:
 ## Nmap Command
 
 ```bash
-nmap -PE 10.10.1.11
+nmap -sn -PE 192.168.1.40
 ```
-![ICMP Echo Ping](images/icmp-echo-ping.png)
-
----
-
 ## Meaning
 
 | Option | Purpose |
@@ -737,6 +733,11 @@ nmap -PE 10.10.1.11
 | `-PE` | ICMP Echo ping scan |
 
 ---
+![ICMP Echo Ping](images/icmp.png)
+
+---
+
+
 
 ## Result
 
@@ -767,12 +768,8 @@ to identify:
 ## Nmap Command
 
 ```bash
-nmap -sn -PE 10.10.1.5-24
+nmap -sn -PE 192.168.1.5-24
 ```
-![ICMP Ping Sweep](images/icmp-ping-sweep.png)
-
----
-
 ## Meaning
 
 | Option | Purpose |
@@ -781,6 +778,11 @@ nmap -sn -PE 10.10.1.5-24
 | `-PE` | ICMP Echo scan |
 
 ---
+
+![ICMP Ping Sweep](images/icmps.png)
+
+---
+
 
 ## Purpose
 
@@ -813,7 +815,7 @@ Useful when:
 ## Nmap Command
 
 ```bash
-nmap -PP 10.10.1.11
+nmap -sn -PP 192.168.1.40
 ```
 
 ---
@@ -826,7 +828,7 @@ nmap -PP 10.10.1.11
 
 ---
 
-![ICMP Timestamp Ping](images/icmp-timestamp-ping.png)
+![ICMP Timestamp Ping](images/icmpt.png)
 
 ---
 
@@ -844,7 +846,7 @@ to:
 ---
 
 ```bash
-nmap -PM 10.10.1.11
+ nmap -sn -PM 192.168.1.40
 ```
 
 ---
@@ -857,9 +859,8 @@ nmap -PM 10.10.1.11
 
 ---
 
-## Image
 
-![ICMP Address Mask Ping](images/icmp-address-mask-ping.png)
+![ICMP Address Mask Ping](images/icmp.png)
 
 ---
 
@@ -884,7 +885,7 @@ without establishing full connection.
 ## Nmap Command
 
 ```bash
-nmap -PS 10.10.1.11
+ nmap -sn -PS 192.168.1.40  
 ```
 
 ---
@@ -896,7 +897,7 @@ nmap -PS 10.10.1.11
 | `-PS` | TCP SYN ping |
 
 ---
-![TCP SYN Ping](images/tcp-syn-ping.png)
+![TCP SYN Ping](images/tcps.png)
 
 ## Advantages
 
@@ -918,18 +919,6 @@ TCP ACK Ping:
 
 ## How It Works
 
-```text
-Attacker → ACK Packet → Target
-Attacker ← RST Packet ← Target
-```
-
-If RST received:
-✅ Host is active
-
----
-
-## Image
-
 ![TCP ACK Ping](images/tcp-ack-ping.png)
 
 ---
@@ -937,9 +926,9 @@ If RST received:
 ## Nmap Command
 
 ```bash
-nmap -PA 10.10.1.11
+ nmap -sn -PA 192.168.1.40
 ```
-![TCP ACK Ping](images/tcp-ack-ping.png)
+![TCP ACK Ping](images/tcpa.png)
 
 ## Meaning
 
@@ -977,16 +966,6 @@ to determine:
 
 ## How It Works
 
-```text
-Attacker → ICMP/IGMP/TCP/UDP → Target
-Attacker ← Any Response ← Target
-```
-
-If any reply received:
-Host is active
-
-
-
 ![IP Protocol Ping](images/ip-protocol-ping1.png)
 
 ---
@@ -994,7 +973,7 @@ Host is active
 ## Nmap Command
 
 ```bash
-nmap -PO 10.10.1.11
+ nmap -sn -PO 192.168.1.40
 ```
 
 ---
@@ -1005,31 +984,6 @@ nmap -PO 10.10.1.11
 |---|---|
 | `-PO` | IP Protocol ping |
 
-![IP Protocol Ping](images/ip-protocol-ping1.png)
+![IP Protocol Ping](images/ipp.png)
 ---
 
-# Quick Revision Table
-
-| Scan Type | Purpose |
-|---|---|
-| ARP Ping | Discover local devices |
-| UDP Ping | Detect hosts using UDP |
-| ICMP Echo | Check live hosts |
-| Ping Sweep | Find multiple live hosts |
-| Timestamp Ping | Time-based host detection |
-| Address Mask Ping | Detect subnet info |
-| TCP SYN Ping | Stealth host discovery |
-| TCP ACK Ping | Firewall bypass discovery |
-| IP Protocol Ping | Detect online hosts |
-
----
-
-# Important Exam Points
-
-Focus on:
-- Difference between ARP and ICMP scan
-- TCP SYN vs TCP ACK ping
-- Nmap options (`-PR`, `-PE`, `-PS`, `-PA`, `-PO`)
-- Ping sweep concept
-- Firewall bypass techniques
-- Host discovery methods
