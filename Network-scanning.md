@@ -567,3 +567,467 @@ Features:
 
 ---
 ![NetScanTools Pro ARP Scan](images/netscantools-arp-scan.png)
+
+# Host Discovery Techniques
+
+Host discovery techniques are used to identify:
+- Active hosts
+- Live systems
+- Reachable devices
+
+in a network.
+
+---
+
+# Types of Host Discovery Techniques
+
+- ARP Ping Scan
+- UDP Ping Scan
+- ICMP Ping Scan
+  - ICMP ECHO Ping
+  - ICMP ECHO Ping Sweep
+  - ICMP Timestamp Ping
+  - ICMP Address Mask Ping
+- TCP Ping Scan
+  - TCP SYN Ping
+  - TCP ACK Ping
+- IP Protocol Ping Scan
+
+---
+
+# 1. ARP Ping Scan
+
+## What is ARP Ping Scan?
+
+ARP Ping Scan sends:
+- ARP request packets
+
+to discover:
+- Active devices
+- Live hosts
+- MAC addresses
+
+inside the local network.
+
+---
+
+## How It Works
+
+![ARP Ping Scan](images/arp-ping-scan1.png)
+If ARP response is received:  Host is active
+
+
+---
+
+## Important Note
+
+Nmap uses ARP scan as the:
+> Default ping scan in local networks
+
+---
+
+## Nmap Command
+
+```bash
+nmap -PR 10.10.1.11
+```
+![ARP Ping Scan](images/arp-ping-scan.png)
+---
+
+## Meaning
+
+| Option | Purpose |
+|---|---|
+| `-PR` | Perform ARP ping scan |
+
+---
+
+## Advantages
+
+- Very accurate in LAN
+- Faster host discovery
+- Displays MAC addresses
+- Useful for scanning large address spaces
+
+---
+
+# 2. UDP Ping Scan
+
+## What is UDP Ping Scan?
+
+UDP Ping Scan sends:
+- UDP packets
+
+to determine whether:
+- Host is active
+- Host is reachable
+
+---
+
+## How It Works
+
+### Active Host && Inactive Host
+
+
+![UDP Ping Scan](images/udp-ping-scan1.png)
+
+---
+
+
+---
+
+## Nmap Command
+
+```bash
+nmap -PU 10.10.1.11
+```
+![UDP Ping Scan](images/udp-ping-scan.png)
+---
+
+## Meaning
+
+| Option | Purpose |
+|---|---|
+| `-PU` | UDP ping scan |
+
+---
+
+## Advantage
+
+Useful for:
+- Detecting systems behind firewalls
+- Scanning networks where TCP is filtered
+
+---
+
+# 3. ICMP ECHO Ping Scan
+
+## What is ICMP Ping Scan?
+
+ICMP Ping Scan sends:
+- ICMP Echo Request packets
+
+to determine:
+- Whether a host is alive
+
+---
+
+## How It Works
+
+
+![ICMP Echo Ping](images/icmp-echo-ping1.png)
+
+---
+
+## Nmap Command
+
+```bash
+nmap -PE 10.10.1.11
+```
+![ICMP Echo Ping](images/icmp-echo-ping.png)
+
+---
+
+## Meaning
+
+| Option | Purpose |
+|---|---|
+| `-PE` | ICMP Echo ping scan |
+
+---
+
+## Result
+
+If reply received: Host is up
+
+---
+
+# 4. ICMP ECHO Ping Sweep
+
+## What is Ping Sweep?
+
+Ping Sweep sends:
+- ICMP Echo Requests
+- To multiple hosts
+
+to identify:
+- All live systems in subnet
+
+---
+
+## How It Works
+
+
+![ICMP Ping Sweep](images/icmp-ping-sweep1.png)
+
+---
+
+## Nmap Command
+
+```bash
+nmap -sn -PE 10.10.1.5-24
+```
+![ICMP Ping Sweep](images/icmp-ping-sweep.png)
+
+---
+
+## Meaning
+
+| Option | Purpose |
+|---|---|
+| `-sn` | Host discovery only |
+| `-PE` | ICMP Echo scan |
+
+---
+
+## Purpose
+
+Used for:
+- Discovering multiple live hosts
+- Network inventory
+
+---
+
+# 5. ICMP Timestamp Ping Scan
+
+## What is ICMP Timestamp Ping?
+
+Sends:
+- ICMP Timestamp requests
+
+to:
+- Obtain time information
+- Detect active hosts
+
+---
+
+## Purpose
+
+Useful when:
+- Traditional ICMP Echo is blocked
+
+---
+
+## Nmap Command
+
+```bash
+nmap -PP 10.10.1.11
+```
+
+---
+
+## Meaning
+
+| Option | Purpose |
+|---|---|
+| `-PP` | ICMP Timestamp ping |
+
+---
+
+![ICMP Timestamp Ping](images/icmp-timestamp-ping.png)
+
+---
+
+# 6. ICMP Address Mask Ping Scan
+
+## What is ICMP Address Mask Ping?
+
+Sends:
+- ICMP Address Mask requests
+
+to:
+- Obtain subnet mask information
+- Detect active systems
+
+---
+
+```bash
+nmap -PM 10.10.1.11
+```
+
+---
+
+## Meaning
+
+| Option | Purpose |
+|---|---|
+| `-PM` | ICMP Address Mask ping |
+
+---
+
+## Image
+
+![ICMP Address Mask Ping](images/icmp-address-mask-ping.png)
+
+---
+
+# 7. TCP SYN Ping Scan
+
+## What is TCP SYN Ping?
+
+TCP SYN Ping:
+- Sends SYN packet
+- Checks whether host responds
+
+without establishing full connection.
+
+---
+
+## How It Works
+
+![TCP SYN Ping](images/tcp-syn-ping1.png)
+
+---
+
+## Nmap Command
+
+```bash
+nmap -PS 10.10.1.11
+```
+
+---
+
+## Meaning
+
+| Option | Purpose |
+|---|---|
+| `-PS` | TCP SYN ping |
+
+---
+![TCP SYN Ping](images/tcp-syn-ping.png)
+
+## Advantages
+
+- Faster scanning
+- Bypasses some firewalls
+- Stealthier than full TCP connection
+
+---
+
+# 8. TCP ACK Ping Scan
+
+## What is TCP ACK Ping?
+
+TCP ACK Ping:
+- Sends ACK packets
+- Detects active hosts
+
+---
+
+## How It Works
+
+```text
+Attacker → ACK Packet → Target
+Attacker ← RST Packet ← Target
+```
+
+If RST received:
+✅ Host is active
+
+---
+
+## Image
+
+![TCP ACK Ping](images/tcp-ack-ping.png)
+
+---
+
+## Nmap Command
+
+```bash
+nmap -PA 10.10.1.11
+```
+![TCP ACK Ping](images/tcp-ack-ping.png)
+
+## Meaning
+
+| Option | Purpose |
+|---|---|
+| `-PA` | TCP ACK ping |
+
+---
+
+## Advantages
+
+Useful for:
+- Firewall bypassing
+- Detecting filtered systems
+
+---
+
+# 9. IP Protocol Ping Scan
+
+## What is IP Protocol Ping?
+
+Sends:
+- Different IP protocol packets
+
+such as:
+- ICMP
+- IGMP
+- TCP
+- UDP
+
+to determine:
+- Whether host is online
+
+---
+
+## How It Works
+
+```text
+Attacker → ICMP/IGMP/TCP/UDP → Target
+Attacker ← Any Response ← Target
+```
+
+If any reply received:
+Host is active
+
+
+
+![IP Protocol Ping](images/ip-protocol-ping1.png)
+
+---
+
+## Nmap Command
+
+```bash
+nmap -PO 10.10.1.11
+```
+
+---
+
+## Meaning
+
+| Option | Purpose |
+|---|---|
+| `-PO` | IP Protocol ping |
+
+![IP Protocol Ping](images/ip-protocol-ping1.png)
+---
+
+# Quick Revision Table
+
+| Scan Type | Purpose |
+|---|---|
+| ARP Ping | Discover local devices |
+| UDP Ping | Detect hosts using UDP |
+| ICMP Echo | Check live hosts |
+| Ping Sweep | Find multiple live hosts |
+| Timestamp Ping | Time-based host detection |
+| Address Mask Ping | Detect subnet info |
+| TCP SYN Ping | Stealth host discovery |
+| TCP ACK Ping | Firewall bypass discovery |
+| IP Protocol Ping | Detect online hosts |
+
+---
+
+# Important Exam Points
+
+Focus on:
+- Difference between ARP and ICMP scan
+- TCP SYN vs TCP ACK ping
+- Nmap options (`-PR`, `-PE`, `-PS`, `-PA`, `-PO`)
+- Ping sweep concept
+- Firewall bypass techniques
+- Host discovery methods
