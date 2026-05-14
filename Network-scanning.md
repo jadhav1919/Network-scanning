@@ -133,7 +133,7 @@ Server ← ACK ← Client
 
 Connection closed.
 
----
+![TCP Connection Termination](images/tcp-connection-termination.png)
 
 # 8. Scanning Tools
 
