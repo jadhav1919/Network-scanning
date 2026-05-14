@@ -614,6 +614,7 @@ inside the local network.
 ## How It Works
 
 ![ARP Ping Scan](images/arp-ping-scan1.png)
+
 If ARP response is received:  Host is active
 
 
@@ -632,6 +633,7 @@ Nmap uses ARP scan as the:
 nmap -PR 10.10.1.11
 ```
 ![ARP Ping Scan](images/arp-ping-scan.png)
+
 ---
 
 ## Meaning
