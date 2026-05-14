@@ -167,87 +167,366 @@ nmap 192.168.1.1
 
 ## What is Hping3?
 
-Advanced packet crafting and scanning tool.
+Hping3 is an advanced:
+- Network scanning tool
+- Packet crafting tool
+- Firewall testing tool
 
-Used for:
-- ICMP scan
-- SYN scan
-- ACK scan
-- Firewall testing
-- Packet crafting
+It allows attackers or security testers to:
+- Create custom TCP/IP packets
+- Test firewall rules
+- Scan ports
+- Perform OS fingerprinting
+- Analyze network behavior
+
+---
+
+# Features of Hping3
+
+- ICMP Scanning
+- TCP Scanning
+- UDP Scanning
+- SYN/ACK Scanning
+- Firewall Testing
+- Packet Crafting
+- Traceroute Mode
+- OS Fingerprinting
+- Idle Host Scanning
+
+---
+
+# Basic Syntax
+
+```bash
+hping3 <options> <target-ip>
+```
+
+Example:
+
+```bash
+hping3 10.0.0.25
+```
 
 ---
 
 # Important Hping3 Commands
 
-## 1. ICMP Ping Scan
+---
+
+# 1. ICMP Ping Scan
+
+## Command
 
 ```bash
 hping3 -1 10.0.0.25
 ```
 
-### Meaning
+---
 
-- `-1` → ICMP mode
+## Breakdown
 
-Similar to ping.
+| Part | Meaning |
+|---|---|
+| `hping3` | Tool name |
+| `-1` | ICMP mode |
+| `10.0.0.25` | Target IP |
 
 ---
 
-## 2. ACK Scan
+## Purpose
+
+Used to:
+- Check whether host is alive
+- Perform ping sweep
+- Test connectivity
+
+---
+
+## How It Works
+
+Hping3 sends:
+- ICMP Echo Request packets
+
+Target replies with:
+- ICMP Echo Reply packets
+
+Similar to:
+```bash
+ping 10.0.0.25
+```
+
+---
+
+# 2. ACK Scan
+
+## Command
 
 ```bash
 hping3 -A 10.0.0.25 -p 80
 ```
 
-### Meaning
+---
 
-- `-A` → ACK flag
-- `-p 80` → Target port 80
+## Breakdown
 
-Used for:
-- Firewall detection
+| Part | Meaning |
+|---|---|
+| `-A` | Set ACK flag |
+| `-p 80` | Target port 80 |
 
 ---
 
-## 3. UDP Scan
+## Purpose
+
+Used for:
+- Firewall detection
+- Checking filtering rules
+
+---
+
+## How It Works
+
+Hping3 sends:
+- TCP packets with ACK flag set
+
+### If:
+- Firewall allows → Response received
+- Firewall blocks → No response
+
+---
+
+## Important Note
+
+ACK scan usually does:
+- NOT determine open ports directly
+- It mainly checks firewall behavior
+
+---
+
+# 3. UDP Scan
+
+## Command
 
 ```bash
 hping3 -2 10.0.0.25 -p 80
 ```
 
-### Meaning
+---
 
-- `-2` → UDP mode
+## Breakdown
+
+| Part | Meaning |
+|---|---|
+| `-2` | UDP mode |
+| `-p 80` | Target port |
 
 ---
 
-## 4. SYN Scan
+## Purpose
+
+Used to:
+- Scan UDP ports
+- Discover UDP services
+
+---
+
+## How It Works
+
+Hping3 sends:
+- UDP packets
+
+### Responses:
+| Response | Meaning |
+|---|---|
+| ICMP Port Unreachable | Port closed |
+| No response | Port may be open |
+
+---
+
+# 4. SYN Scan
+
+## Command
 
 ```bash
 hping3 -8 50-60 -S 10.0.0.25
 ```
 
-### Meaning
+---
 
-- `-8` → Enable scan mode
-- `50-60` → Port range
-- `-S` → SYN flag
+## Breakdown
+
+| Part | Meaning |
+|---|---|
+| `-8` | Enable scan mode |
+| `50-60` | Scan ports 50 to 60 |
+| `-S` | Set SYN flag |
+| `10.0.0.25` | Target IP |
 
 ---
 
-## 5. FIN/PSH/URG Scan
+## Purpose
+
+Used to:
+- Find open TCP ports
+- Perform stealth scanning
+
+---
+
+## How It Works
+
+Hping3 sends:
+- SYN packets
+- To ports 50 → 60
+
+### Responses
+
+| Response | Meaning |
+|---|---|
+| SYN-ACK | Port open |
+| RST | Port closed |
+
+---
+
+## Similar Nmap Command
+
+```bash
+nmap -sS 10.0.0.25
+```
+
+---
+
+# 5. FIN / PSH / URG Scan
+
+## Command
 
 ```bash
 hping3 -F -P -U 10.0.0.25 -p 80
 ```
 
-### Meaning
+---
 
-Uses:
-- FIN
-- PSH
-- URG flags
+## Breakdown
+
+| Option | Meaning |
+|---|---|
+| `-F` | FIN flag |
+| `-P` | PSH flag |
+| `-U` | URG flag |
+| `-p 80` | Target port |
+
+---
+
+## Purpose
+
+Used for:
+- Advanced stealth scanning
+- Firewall evasion
+- Detecting filtered ports
+
+---
+
+## How It Works
+
+Hping3 sends:
+- Special TCP packets with FIN, PSH, URG flags
+
+### Responses
+
+| Response | Meaning |
+|---|---|
+| No response | Port may be open |
+| RST response | Port closed |
+
+---
+
+# 6. Collect Initial Sequence Numbers
+
+## Command
+
+```bash
+hping3 192.168.1.103 -Q -p 139
+```
+
+---
+
+## Purpose
+
+Used to:
+- Collect TCP sequence numbers
+- Analyze TCP behavior
+
+---
+
+# 7. Firewall Timestamp Scan
+
+## Command
+
+```bash
+hping3 -S 72.14.207.99 -p 80 --tcp-timestamp
+```
+
+---
+
+## Purpose
+
+Used to:
+- Analyze firewall behavior
+- Check TCP timestamp handling
+- Estimate uptime
+
+---
+
+# 8. Scan Entire Subnet
+
+## Command
+
+```bash
+hping3 -1 10.0.1.x --rand-dest -I eth0
+```
+
+---
+
+## Purpose
+
+Used to:
+- Discover live hosts in subnet
+- Perform random destination scanning
+
+---
+
+# 9. Intercept HTTP Traffic
+
+## Command
+
+```bash
+hping3 -9 HTTP -I eth0
+```
+
+---
+
+## Purpose
+
+Used to:
+- Capture packets containing HTTP signatures
+- Monitor HTTP traffic
+
+---
+
+# 10. SYN Flood Attack
+
+## Command
+
+```bash
+hping3 -S 192.168.1.1 -a 192.168.1.254 -p 22 --flood
+```
+
+---
+
+## Purpose
+
+Used to:
+- Generate massive SYN packets
+- Perform DoS attack simulation
 
 ---
 
@@ -274,6 +553,7 @@ search portscan
 ```
 
 ---
+![Metasploit Port Scanning Modules](images/metasploit-portscan-modules.png)
 
 # D. NetScanTools Pro
 
@@ -286,3 +566,4 @@ Features:
 - Network mapping
 
 ---
+![NetScanTools Pro ARP Scan](images/netscantools-arp-scan.png)
