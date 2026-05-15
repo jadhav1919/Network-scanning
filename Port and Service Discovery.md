@@ -152,7 +152,7 @@ TCP Connect Scan:
 ```bash
 nmap -sT 10.10.1.11
 ```
-
+![TCP Connect Scan Working](images/tcpconout.png)
 ---
 
 ## Advantages
