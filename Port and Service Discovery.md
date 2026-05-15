@@ -243,20 +243,6 @@ Uses packets with:
 
 ---
 
-## Advantages
-
-- Highly stealthy
-- Can bypass IDS/firewalls
-
----
-
-## Disadvantages
-
-- Mostly effective on UNIX systems
-- Not reliable on Windows
-
----
-
 # 3.1. Xmas Scan
 
 ## What is Xmas Scan?
