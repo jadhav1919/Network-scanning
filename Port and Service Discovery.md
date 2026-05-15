@@ -197,7 +197,7 @@ Also called:
 ```bash
 nmap -sS 10.10.1.11
 ```
-
+![Stealth Scan Working](images/tcpscanout.png)
 ---
 
 ## Advantages
