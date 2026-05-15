@@ -318,7 +318,7 @@ Uses:
 ## Nmap Command
 
 ```bash
-nmap -sM 10.10.1.11
+ nmap -sM -v 192.168.1.13                                                                                       
 ```
 ![TCP Maimon Scan](images/mwout.png)
 
