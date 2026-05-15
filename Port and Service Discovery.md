@@ -174,48 +174,16 @@ TCP Connect Scan:
 
 ## Working Process
 
-### Open Port
+### Open Port && Closed Port
 
-```text
-Attacker → SYN → Target
-Attacker ← SYN-ACK ← Target
-Attacker → ACK → Target
-Attacker → RST → Target
-```
-
- Port is Open
-
----
-
-### Closed Port
-
-```text
-Attacker → SYN → Target
-Attacker ← RST ← Target
-```
-
- Port is Closed
-
----
-
-# Screenshot Section
-
-```markdown
-![TCP Connect Scan Working](images/tcp-connect-working.png)
-```
-
-```markdown
-![TCP Connect Scan Zenmap Output](images/tcp-connect-zenmap.png)
-```
-
----
+![TCP Connect Scan Working](images/tcpw.png)
 
 ## Nmap Command
 
 ```bash
 nmap -sT 10.10.1.11
 ```
-
+![TCP Connect Scan Zenmap Output](images/tcp-connect-zenmap.png)
 ---
 
 ## Advantages
@@ -249,47 +217,17 @@ Also called:
 
 ## Working Process
 
-### Open Port
+### Open Port && Closed Port
 
-```text
-Attacker → SYN → Target
-Attacker ← SYN-ACK ← Target
-Attacker → RST → Target
-```
+![Stealth Scan Working](images/sw.png)
 
-✅ Port is Open
-
----
-
-### Closed Port
-
-```text
-Attacker → SYN → Target
-Attacker ← RST ← Target
-```
-
-❌ Port is Closed
-
----
-
-# Screenshot Section
-
-```markdown
-![Stealth Scan Working](images/stealth-scan-working.png)
-```
-
-```markdown
-![Stealth Scan Zenmap](images/stealth-scan-zenmap.png)
-```
-
----
 
 ## Nmap Command
 
 ```bash
 nmap -sS 10.10.1.11
 ```
-
+![Stealth Scan Zenmap](images/stealth-scan-zenmap.png)
 ---
 
 ## Advantages
@@ -327,15 +265,8 @@ Uses packets with:
 - NULL Scan
 - Xmas Scan
 
----
+![Inverse TCP Flag Scan](images/iw.png)
 
-# Screenshot Section
-
-```markdown
-![Inverse TCP Flag Scan](images/inverse-tcp-flag-scan.png)
-```
-
----
 
 ## Advantages
 
@@ -362,48 +293,18 @@ Sends packets with:
 
 ---
 
-## Working Process
+## Working Process && Closed Port
 
-### Open Port
 
-```text
-Attacker → FIN+URG+PSH → Target
-No Response
-```
+![Xmas Scan Working](images/xmas.png)
 
-✅ Port Open
-
----
-
-### Closed Port
-
-```text
-Attacker → FIN+URG+PSH → Target
-RST Response
-```
-
-❌ Port Closed
-
----
-
-# Screenshot Section
-
-```markdown
-![Xmas Scan Working](images/xmas-scan-working.png)
-```
-
-```markdown
-![Xmas Scan Zenmap](images/xmas-scan-zenmap.png)
-```
-
----
 
 ## Nmap Command
 
 ```bash
 nmap -sX 10.10.1.11
 ```
-
+![Xmas Scan Zenmap](images/xmas-scan-zenmap.png)
 ---
 
 ## Advantages
@@ -496,24 +397,15 @@ Uses:
 
 ---
 
-# Screenshot Section
+![TCP Maimon Scan](images/mw.png)
 
-```markdown
-![TCP Maimon Scan](images/maimon-scan-working.png)
-```
-
-```markdown
-![TCP Maimon Scan Zenmap](images/maimon-scan-zenmap.png)
-```
-
----
 
 ## Nmap Command
 
 ```bash
 nmap -sM 10.10.1.11
 ```
-
+![TCP Maimon Scan Zenmap](images/maimon-scan-zenmap.png)
 ---
 
 # 8. ACK Flag Probe Scan
@@ -531,30 +423,15 @@ Used for:
 
 ## Working Process
 
-```text
-Attacker → ACK Probe → Target
-Attacker ← RST Response ← Target
-```
 
----
 
-# Screenshot Section
-
-```markdown
-![ACK Probe Scan Working](images/ack-probe-working.png)
-```
-
-```markdown
-![ACK Scan Zenmap](images/ack-scan-zenmap.png)
-```
-
----
 
 ## Nmap Command
 
 ```bash
 nmap -sA 10.10.1.11
 ```
+![ACK Scan Zenmap](images/ack-scan-zenmap.png)
 
 ---
 
@@ -575,12 +452,7 @@ Analyzes:
 | TTL > 64 | Port closed |
 
 ---
-
-# Screenshot Section
-
-```markdown
-![TTL Based ACK Scan](images/ttl-ack-scan.png)
-```
+![ACK Probe Scan Working](images/ack.png)
 
 ---
 
@@ -605,7 +477,7 @@ Analyzes:
 # Screenshot Section
 
 ```markdown
-![Window Based ACK Scan](images/window-ack-scan.png)
+![Window Based ACK Scan](images/wa1.png)
 ```
 
 ---
@@ -669,7 +541,7 @@ Advanced stealth scanning technique using:
 Attacker → SYN/ACK → Zombie
 Zombie → RST(IPID=X) → Attacker
 ```
-
+![Idle Scan Step 1](images/s1.png)
 ---
 
 ## Step 2 — Spoof SYN Packet
@@ -686,7 +558,7 @@ Zombie → RST → Target
 ```
 
 Zombie IPID increases.
-
+![Idle Scan Step 2](images/s2.png)
 ---
 
 ## Step 3 — Probe Zombie Again
@@ -700,22 +572,8 @@ If IPID increased:
 ✅ Port is Open
 
 ---
+![Idle Scan Step 3](images/s3.png)
 
-# Screenshot Section
-
-```markdown
-![Idle Scan Step 1](images/idle-scan-step1.png)
-```
-
-```markdown
-![Idle Scan Step 2](images/idle-scan-step2.png)
-```
-
-```markdown
-![Idle Scan Step 3](images/idle-scan-step3.png)
-```
-
-```markdown
 ![Idle Scan Nmap Output](images/idle-scan-nmap.png)
 ```
 
@@ -768,8 +626,8 @@ Attacker → UDP Packet → Target
 No Response
 ```
 
-✅ Port may be Open
-
+Port may be Open
+![UDP Scan Working](images/udp.png)
 ---
 
 ### Closed Port
@@ -779,14 +637,14 @@ Attacker → UDP Packet → Target
 ICMP Port Unreachable ← Target
 ```
 
-❌ Port Closed
+ Port Closed
 
 ---
 
 # Screenshot Section
 
 ```markdown
-![UDP Scan Working](images/udp-scan-working.png)
+
 ```
 
 ```markdown
@@ -840,11 +698,8 @@ Client ← COOKIE-ACK ← Server
 
 ---
 
-# Screenshot Section
+![SCTP Four Way Handshake](images/sctp.png)
 
-```markdown
-![SCTP Four Way Handshake](images/sctp-handshake.png)
-```
 
 ```markdown
 ![SCTP INIT Scan Working](images/sctp-init-working.png)
@@ -909,33 +764,9 @@ More stealthy than:
 
 ## Working Process
 
-### Open Port
+### Open Port && Closed Port
 
-```text
-Attacker → COOKIE-ECHO → Target
-No Response
-```
-
-✅ Port Open/Filtered
-
----
-
-### Closed Port
-
-```text
-Attacker → COOKIE-ECHO → Target
-ABORT Chunk ← Target
-```
-
-❌ Port Closed
-
----
-
-# Screenshot Section
-
-```markdown
-![SCTP COOKIE ECHO Working](images/sctp-cookie-working.png)
-```
+![SCTP COOKIE ECHO Working](images/sc.png)
 
 ```markdown
 ![SCTP COOKIE ECHO Zenmap](images/sctp-cookie-zenmap.png)
