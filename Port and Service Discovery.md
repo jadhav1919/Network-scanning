@@ -331,7 +331,7 @@ Uses:
 ```bash
 nmap -sM 10.10.1.11
 ```
-
+![TCP Maimon Scan](images/mwout.png)
 ---
 
 # 8. ACK Flag Probe Scan
@@ -361,7 +361,7 @@ nmap -sA 10.10.1.11
 
 ---
 
-# 9. TTL-Based ACK Scan
+# 5. TTL-Based ACK Scan
 
 ## What is TTL Scan?
 
