@@ -241,7 +241,7 @@ Uses packets with:
 - NULL Scan
 - Xmas Scan
 
-![Inverse TCP Flag Scan](images/invers.png)
+![TCP Connect Scan Working](images/invers.png)
 
 ---
 
