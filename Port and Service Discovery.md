@@ -150,7 +150,7 @@ TCP Connect Scan:
 ## Nmap Command
 
 ```bash
-nmap -sT 10.10.1.11
+ nmap -sT -v 192.168.1.13
 ```
 ![TCP Connect Scan Working](images/tcpconout.png)
 ---
