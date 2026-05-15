@@ -272,7 +272,7 @@ Sends packets with:
 
 ## Working Process && Closed Port
 
-![Xmas Scan Working](images/mw.png)
+![Xmas Scan Working](images/xmasx.png)
 
 ---
 
