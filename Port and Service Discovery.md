@@ -236,10 +236,10 @@ Uses packets with:
 ---
 
 ## Types
-
+- Xmas Scan
 - FIN Scan
 - NULL Scan
-- Xmas Scan
+
 
 ![TCP Connect Scan Working](images/invers.png)
 
@@ -259,7 +259,7 @@ Uses packets with:
 
 ---
 
-# 4. Xmas Scan
+# 3.1. Xmas Scan
 
 ## What is Xmas Scan?
 
@@ -298,7 +298,7 @@ nmap -sX 10.10.1.11
 
 ---
 
-# 5. FIN Scan
+# 3.2. FIN Scan
 
 ## What is FIN Scan?
 
@@ -324,7 +324,7 @@ nmap -sF 10.10.1.11
 
 ---
 
-# 6. NULL Scan
+# 3.3. NULL Scan
 
 ## What is NULL Scan?
 
