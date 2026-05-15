@@ -143,7 +143,7 @@ TCP Connect Scan:
 
 ### Open Port && Closed Port
 
-![TCP Connect Scan Working](images/tcpa.png)
+![TCP Connect Scan Working](images/tcpcon.png)
 
 ---
 
