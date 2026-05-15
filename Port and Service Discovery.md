@@ -377,6 +377,7 @@ Analyzes:
 
 ---
 
+
 # 7. Window-Based ACK Scan
 
 ## What is Window Scan?
