@@ -237,8 +237,6 @@ Uses packets with:
 
 ## Types
 - Xmas Scan
-- FIN Scan
-- NULL Scan
 
 
 ![TCP Connect Scan Working](images/invers.png)
@@ -281,6 +279,7 @@ Sends packets with:
 ```bash
 nmap -sX 10.10.1.11
 ```
+![Xmas Scan Working](images/xmasxout.png)
 
 ---
 
@@ -298,59 +297,8 @@ nmap -sX 10.10.1.11
 
 ---
 
-# 3.2. FIN Scan
 
-## What is FIN Scan?
-
-Sends:
-- FIN flag only
-
----
-
-## Responses
-
-| Response | Meaning |
-|---|---|
-| No response | Port open |
-| RST | Port closed |
-
----
-
-## Nmap Command
-
-```bash
-nmap -sF 10.10.1.11
-```
-
----
-
-# 3.3. NULL Scan
-
-## What is NULL Scan?
-
-Sends packets:
-- With no TCP flags
-
----
-
-## Responses
-
-| Response | Meaning |
-|---|---|
-| No response | Port open |
-| RST | Port closed |
-
----
-
-## Nmap Command
-
-```bash
-nmap -sN 10.10.1.11
-```
-
----
-
-# 7. TCP Maimon Scan
+# 4. TCP Maimon Scan
 
 ## What is Maimon Scan?
 
