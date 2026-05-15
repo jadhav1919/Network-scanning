@@ -263,10 +263,13 @@ Sends packets with:
 ## Nmap Command
 
 ```bash
-nmap -sX 10.10.1.11
+ nmap -sX -v 192.168.1.13
 ```
 ![Xmas Scan Working](images/xmasxout.png)
 
+- The Xmas scan (-sX) was performed on the target IP address 192.168.1.13. 
+- The host was found to be active, but all 1000 scanned TCP ports responded with RST packets, indicating that all ports are closed. 
+- No open ports or services were detected on the target system.
 ---
 
 ## Advantages
