@@ -322,10 +322,10 @@ Uses:
 ```
 ![TCP Maimon Scan](images/mwout.png)
 
-The Maimon scan (-sM) was performed on the target IP address 192.168.1.13. 
-The host was active and reachable on the network. 
-All 1000 scanned TCP ports returned RST responses, indicating that all ports are closed. 
-No open ports or running services were identified on the target system.
+- The Maimon scan (-sM) was performed on the target IP address 192.168.1.13. 
+- The host was active and reachable on the network. 
+- All 1000 scanned TCP ports returned RST responses, indicating that all ports are closed. 
+- No open ports or running services were identified on the target system.
 ---
 
 # 5. ACK Flag Probe Scan
