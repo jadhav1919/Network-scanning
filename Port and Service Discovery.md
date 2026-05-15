@@ -334,7 +334,7 @@ nmap -sM 10.10.1.11
 ![TCP Maimon Scan](images/mwout.png)
 ---
 
-# 8. ACK Flag Probe Scan
+# 5. ACK Flag Probe Scan
 
 ## What is ACK Scan?
 
@@ -361,7 +361,7 @@ nmap -sA 10.10.1.11
 
 ---
 
-# 5. TTL-Based ACK Scan
+# 6. TTL-Based ACK Scan
 
 ## What is TTL Scan?
 
@@ -383,7 +383,7 @@ Analyzes:
 
 ---
 
-# 10. Window-Based ACK Scan
+# 7. Window-Based ACK Scan
 
 ## What is Window Scan?
 
@@ -405,7 +405,7 @@ Analyzes:
 
 ---
 
-# 11. Firewall Detection using ACK Scan
+# 8. Firewall Detection using ACK Scan
 
 ## Stateful Firewall Present
 
@@ -414,7 +414,7 @@ Attacker → ACK Probe → Target
 No Response
 ```
 
-✅ Firewall Present
+ Firewall Present
 
 ---
 
@@ -433,7 +433,7 @@ RST Response
 
 ---
 
-# 12. IDLE/IPID Header Scan
+# 9. IDLE/IPID Header Scan
 
 ## What is IDLE Scan?
 
