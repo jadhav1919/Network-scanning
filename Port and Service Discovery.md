@@ -195,7 +195,7 @@ Also called:
 ## Nmap Command
 
 ```bash
-nmap -sS 10.10.1.11
+ nmap -sS -v 192.168.1.13
 ```
 ![Stealth Scan Working](images/tcpscanout.png)
 ---
