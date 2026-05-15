@@ -350,9 +350,9 @@ Used for:
 ## Nmap Command
 
 ```bash
-nmap -sA 10.10.1.11
+ nmap -sA -v 192.168.1.13
 ```
-
+![ACK Probe Scan Working](images/ackout.png)
 ---
 
 # 6. TTL-Based ACK Scan
