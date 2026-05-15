@@ -188,7 +188,7 @@ Also called:
 
 ### Open Port && Closed Port
 
-![Stealth Scan Working](images/tcps.png)
+![Stealth Scan Working](images/tcpscan.png)
 
 ---
 
