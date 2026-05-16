@@ -318,9 +318,10 @@ It is not mainly used to find open ports.
  nmap -sA -v 192.168.1.13
 ```
 ![ACK Probe Scan Working](images/ackout.png)
----
 
-# 6. TTL-Based ACK Scan
+# Types of ACK Probe Scanning
+
+## A,TTL-Based ACK Scan
 
 ## What is TTL Scan?
 
