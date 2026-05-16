@@ -303,21 +303,14 @@ Uses:
 # 5. ACK Flag Probe Scan
 
 ## What is ACK Scan?
+ACK scan is a TCP scanning technique mainly used to:
 
-Sends:
-- ACK packets
+- Detect firewalls
+- Check packet filtering
+- Analyze how the target network responds
 
-Used for:
-- Firewall detection
-- Filtering analysis
+It is not mainly used to find open ports.
 
----
-
-## Working Process
-
-![ACK Probe Scan Working](images/ack.png)
-
----
 
 ## Nmap Command
 
