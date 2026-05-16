@@ -334,6 +334,7 @@ Analyzes:
 ![ACK Probe Scan Working](images/ack.png)
 
 
+
 # 7. Window-Based ACK Scan
 
 ## What is Window Scan?
