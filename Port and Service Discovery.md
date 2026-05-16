@@ -214,36 +214,8 @@ Also called:
 
 ---
 
-# 3. Inverse TCP Flag Scan
 
-## What is Inverse TCP Flag Scan?
-
-Uses packets with:
-- FIN
-- URG
-- PSH
-- or no flags
-
----
-
-## Responses
-
-| Response | Meaning |
-|---|---|
-| No response | Port open |
-| RST/ACK | Port closed |
-
----
-
-## Types
-- Xmas Scan
-
-
-![TCP Connect Scan Working](images/invers.png)
-
----
-
-# 3.1. Xmas Scan
+# 3 Xmas Scan
 
 ## What is Xmas Scan?
 
