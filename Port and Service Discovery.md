@@ -320,16 +320,10 @@ It is not mainly used to find open ports.
 ![ACK Probe Scan Working](images/ackout.png)
 
 # Types of ACK Probe Scanning
-
 ## A,TTL-Based ACK Scan
-
 ## What is TTL Scan?
-
 Analyzes:
 - TTL value of RST packets
-
----
-
 ## Rule
 
 | TTL Value | Meaning |
@@ -337,11 +331,7 @@ Analyzes:
 | TTL < 64 | Port open |
 | TTL > 64 | Port closed |
 
----
-
 ![ACK Probe Scan Working](images/ack.png)
-
----
 
 
 # 7. Window-Based ACK Scan
